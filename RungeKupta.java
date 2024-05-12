@@ -1,17 +1,8 @@
 public class RungeKupta {
-    private double x0;
-    private double y0;
-    private double h;
-    private double xf;
-    
-    public RungeKupta(double x0, double y0, double h, double xf) {
-        this.x0 = x0;
-        this.y0 = y0;
-        this.h = h;
-        this.xf = xf;
+    public RungeKupta() {
     }
 
-    // Ser alterado para solucionar qualquer equação
+    //Funcao
     private double funcao(double x, double y) {
         return x + y;
     }
