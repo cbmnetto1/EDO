@@ -2,22 +2,35 @@ public class Main {
     public static void main(String[] args) throws Exception {
         double resultado;
 
-        double x0 = 0; // Valor inicial de x
-        double y0 = 1; // Valor inicial de y
-        double h = 10; // Tamanho do passo
-        double xf = 1; // Valor final de x
+        double x0 = 0; // condicao inicial
+        int n = 0; //numero de iterações
+        double tf = 0; //tempo final
+        
 
         //Resolve a equação de três formas diferentes
-        Euler euler = new Euler();
-        resultado = euler.resolverEuler(x0, y0, h, xf);
-        System.out.println("Resultado usando o método de Euler: " + resultado);
+        Euler(x0,n,tf);
+        EulerModificado(x0,n,tf);
+        RungeKupta(x0,n,tf);
+    }
 
-        EulerModificado eulerModificado = new EulerModificado();
-        resultado = eulerModificado.resolverEulerModificado(x0, y0, h, xf);
-        System.out.println("Resultado usando o método de Euler Modificado: " + resultado);
+    public static void Euler(double x0, int n, double tf) {
+        double h = (tf-0)/n; //inclinacao
+        double[] t = new double[n+1];
+        double[] x = new double[n+1];
 
-        RungeKupta rungeKupta = new RungeKupta();
-        resultado = rungeKupta.resolverRungeKupta(x0, y0, h, xf);
-        System.out.println("Resultado usando o método de Runge-Kupta: " + resultado);
+        t[0] = 0;
+        x[0] = x0;
+
+        for (int i = 0; i < n; i++) {
+            double f = x[i];
+            t[i + 1] = t[i] + h;
+            x[i + 1] = x[i] + h * f;
+        }
+
+        System.out.println("Pontos (t(i), x(i)):");
+
+        for (int i = 0; i <= n; i++) {
+            System.out.println("(" + t[i] + ", " + x[i] + ")");
+        }
     }
 }
