@@ -17,7 +17,7 @@ public class EulerModificado {
     }
 
     // Implementando o método de Euler Modificado
-    public double metodoEulerModificado(double x0, double y0, double h, double xf) {
+    public double resolverEulerModificado(double x0, double y0, double h, double xf) {
         double x = x0;
         double y = y0;
         
