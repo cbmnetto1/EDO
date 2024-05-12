@@ -12,12 +12,12 @@ public class RungeKupta {
     }
 
     // Ser alterado para solucionar qualquer equação
-    public static double funcao(double x, double y) {
+    private double funcao(double x, double y) {
         return x + y;
     }
 
     // Implementando o método de Runge-Kutta de quarta ordem
-    public static double metodoRungeKutta(double x0, double y0, double h, double xf) {
+    public double resolverRungeKupta(double x0, double y0, double h, double xf) {
         double x = x0;
         double y = y0;
 
